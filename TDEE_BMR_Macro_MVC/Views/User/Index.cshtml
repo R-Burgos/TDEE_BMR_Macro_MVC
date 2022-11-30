@@ -37,11 +37,17 @@
                 <span asp-validation-for="Age" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <!--I want to pick from a list of options correlating to the CalorieTargetModifier -->
+                <!-- (1)Aggressive Cut/(2)Mild Cut/(3)Maintnenance/(4)Mild Bulk/(5)Aggressive Bulk-->
+                <!--I want the words to be seen and the integeres are what is sent-->
                 <label asp-for="CalorieTargetModifier" class="control-label"></label>
                 <input asp-for="CalorieTargetModifier" class="form-control" />
                 <span asp-validation-for="CalorieTargetModifier" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <!--I want to pick from a list of options correlating to the CarbLevel-->
+                <!--(1)Moderate/(2)Low/(3)High-->
+                <!--I want the words to be seen and the integeres are what is sent-->
                 <label asp-for="CarbLevel" class="control-label"></label>
                 <input asp-for="CarbLevel" class="form-control" />
                 <span asp-validation-for="CarbLevel" class="text-danger"></span>
