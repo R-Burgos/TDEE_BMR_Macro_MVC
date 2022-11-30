@@ -1,3 +1,7 @@
+using MySql.Data.MySqlClient;
+using Newtonsoft.Json.Linq;
+using System.Data;
+
 namespace TDEE_BMR_Macro_MVC
 {
     public class Program
@@ -11,7 +15,6 @@ namespace TDEE_BMR_Macro_MVC
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
@@ -28,7 +31,7 @@ namespace TDEE_BMR_Macro_MVC
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=Index}/{id?}");
 
             app.Run();
         }
