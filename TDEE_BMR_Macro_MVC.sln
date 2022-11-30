@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TDEE_BMR_Macro_MVC", "TDEE_BMR_Macro_MVC\TDEE_BMR_Macro_MVC.csproj", "{2096C789-DF56-4330-8718-802FBD6B3164}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2096C789-DF56-4330-8718-802FBD6B3164}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2096C789-DF56-4330-8718-802FBD6B3164}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2096C789-DF56-4330-8718-802FBD6B3164}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2096C789-DF56-4330-8718-802FBD6B3164}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77AD18B8-864F-4F8E-9F57-73DACC270DAD}
+	EndGlobalSection
+EndGlobal
