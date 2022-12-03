@@ -22,7 +22,7 @@ namespace TDEE_BMR_Macro_MVC.Models
             var APIHost = JObject.Parse(key).GetValue("X-RapidAPI-Host").ToString();
 
             //TDEE
-            string urlTDEE = ($"https://mega-fitness-calculator1.p.rapidapi.com/tdee?weight={(user.Weight/lbToKg).ToString()}&height={(user.Height*inToCm).ToString()}&activitylevel={user.ActivityLevel}&age={user.Age.ToString()}&gender={user.Gender}");
+            string urlTDEE = ($"https://mega-fitness-calculator1.p.rapidapi.com/tdee?weight={(user.Weight/lbToKg).ToString()}&height={(user.Height*inToCm).ToString()}&activitylevel={user.ActivityLevel}&age={user.Age}&gender={user.Gender}");
 
             var client = new RestClient(urlTDEE);
             var request = new RestRequest(Method.GET);

@@ -5,7 +5,6 @@ namespace TDEE_BMR_Macro_MVC.Models
 {
     public class UserModel
     {
-        public string Name { get; set; }
         public double Weight { get; set; }
         public double Height { get; set; }
         [DisplayName ("Activity")]

@@ -15,6 +15,8 @@ namespace TDEE_BMR_Macro_MVC.Controllers
             CalculationsModel cal = new CalculationsModel();
             cal.GetApiTDEE(userModel);
             cal.GetApiBMR(userModel);
+            userModel.TDEE = Math.Round(userModel.TDEE, 0, MidpointRounding.AwayFromZero);
+            userModel.BMR = Math.Round(userModel.BMR, 0, MidpointRounding.AwayFromZero);
             userModel.GoalCalories(userModel);
             userModel.GetMacros(userModel);
 

@@ -16,3 +16,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.nice-headline {
+    font-family: Candara, Calibri, 'Trebuchet MS', sans-serif;
+    color: #033769;
+    font-weight: bold;
+    font-size: 34px;
+    text-align: center;
+}
+.intro {
+    font-family: Candara, Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+    font-size: 18px;
+    text-align: center;
+}
