@@ -12,7 +12,7 @@ namespace TDEE_BMR_Macro_MVC.Controllers
 
         public IActionResult UserCalculatedInfo(UserModel userModel) 
         {
-            CalculationsModel cal = new CalculationsModel();
+            API_RepoModel cal = new API_RepoModel();
             cal.GetApiTDEE(userModel);
             cal.GetApiBMR(userModel);
             userModel.TDEE = Math.Round(userModel.TDEE, 0, MidpointRounding.AwayFromZero);

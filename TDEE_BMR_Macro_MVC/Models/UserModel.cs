@@ -16,6 +16,8 @@ namespace TDEE_BMR_Macro_MVC.Models
         public int CalorieTargetModifier { get; set; }  // 1,2,3,4,5
         [DisplayName("Macro Distribution")]
         public int CarbLevel { get; set; } // 1,2,3
+        [Range (1, 8)]
+        public int MealCount { get; set; }
         public double TDEE { get; set; }
         public double BMR { get; set; }
         public void GoalCalories(UserModel user)
@@ -49,36 +51,37 @@ namespace TDEE_BMR_Macro_MVC.Models
             switch (user.CarbLevel)
             {
                 case 1: // P30/F35/C35
-                    user.ProteinCalories = Math.Round(user.DietCalories * 0.3, 0, MidpointRounding.AwayFromZero);
-                    user.Protein = Math.Round(user.ProteinCalories / 4, 0, MidpointRounding.AwayFromZero);
-                    user.FatCalories = Math.Round(user.DietCalories * 0.35, 0, MidpointRounding.AwayFromZero);
-                    user.Fat = Math.Round(user.FatCalories / 9, 0, MidpointRounding.AwayFromZero);
-                    user.CarbohydrateCalories = Math.Round(user.DietCalories * 0.35, 0, MidpointRounding.AwayFromZero);
-                    user.Carbohydrate = Math.Round(user.CarbohydrateCalories / 4, 0, MidpointRounding.AwayFromZero);
+                    user.UserProteinCalories = Math.Round(user.DietCalories * 0.3, 0, MidpointRounding.AwayFromZero);
+                    user.UserProtein = Math.Round(user.UserProteinCalories / 4, 0, MidpointRounding.AwayFromZero);
+                    user.UserFatCalories = Math.Round(user.DietCalories * 0.35, 0, MidpointRounding.AwayFromZero);
+                    user.UserFat = Math.Round(user.UserFatCalories / 9, 0, MidpointRounding.AwayFromZero);
+                    user.UserCarbohydrateCalories = Math.Round(user.DietCalories * 0.35, 0, MidpointRounding.AwayFromZero);
+                    user.UserCarbohydrate = Math.Round(user.UserCarbohydrateCalories / 4, 0, MidpointRounding.AwayFromZero);
                     break;
                 case 2: // P40/F40/C20
-                    user.ProteinCalories = Math.Round(user.DietCalories * 0.4, 0, MidpointRounding.AwayFromZero);
-                    user.Protein = Math.Round(user.ProteinCalories / 4, 0, MidpointRounding.AwayFromZero);
-                    user.FatCalories = Math.Round(user.DietCalories * 0.4, 0, MidpointRounding.AwayFromZero);
-                    user.Fat = Math.Round(user.FatCalories / 9, 0, MidpointRounding.AwayFromZero);
-                    user.CarbohydrateCalories = Math.Round(user.DietCalories * 0.2, 0, MidpointRounding.AwayFromZero);
-                    user.Carbohydrate = Math.Round(user.CarbohydrateCalories / 4, 0, MidpointRounding.AwayFromZero);
+                    user.UserProteinCalories = Math.Round(user.DietCalories * 0.4, 0, MidpointRounding.AwayFromZero);
+                    user.UserProtein = Math.Round(user.UserProteinCalories / 4, 0, MidpointRounding.AwayFromZero);
+                    user.UserFatCalories = Math.Round(user.DietCalories * 0.4, 0, MidpointRounding.AwayFromZero);
+                    user.UserFat = Math.Round(user.UserFatCalories / 9, 0, MidpointRounding.AwayFromZero);
+                    user.UserCarbohydrateCalories = Math.Round(user.DietCalories * 0.2, 0, MidpointRounding.AwayFromZero);
+                    user.UserCarbohydrate = Math.Round(user.UserCarbohydrateCalories / 4, 0, MidpointRounding.AwayFromZero);
                     break;
                 case 3: // P30/F20/C50
-                    user.ProteinCalories = Math.Round(user.DietCalories * 0.3, 0, MidpointRounding.AwayFromZero);
-                    user.Protein = Math.Round(user.ProteinCalories / 4, 0, MidpointRounding.AwayFromZero);
-                    user.FatCalories = Math.Round(user.DietCalories * 0.2, 0, MidpointRounding.AwayFromZero);
-                    user.Fat = Math.Round(user.FatCalories / 9, 0, MidpointRounding.AwayFromZero);
-                    user.CarbohydrateCalories = Math.Round(user.DietCalories * 0.5, 0, MidpointRounding.AwayFromZero);
-                    user.Carbohydrate = Math.Round(user.CarbohydrateCalories / 4, 0, MidpointRounding.AwayFromZero);
+                    user.UserProteinCalories = Math.Round(user.DietCalories * 0.3, 0, MidpointRounding.AwayFromZero);
+                    user.UserProtein = Math.Round(user.UserProteinCalories / 4, 0, MidpointRounding.AwayFromZero);
+                    user.UserFatCalories = Math.Round(user.DietCalories * 0.2, 0, MidpointRounding.AwayFromZero);
+                    user.UserFat = Math.Round(user.UserFatCalories / 9, 0, MidpointRounding.AwayFromZero);
+                    user.UserCarbohydrateCalories = Math.Round(user.DietCalories * 0.5, 0, MidpointRounding.AwayFromZero);
+                    user.UserCarbohydrate = Math.Round(user.UserCarbohydrateCalories / 4, 0, MidpointRounding.AwayFromZero);
                     break;
             }
         }
-        public double Protein { get; set; }
-        public double ProteinCalories { get; set; }
-        public double Fat { get; set; }
-        public double FatCalories { get; set; }
-        public double Carbohydrate { get; set; }
-        public double CarbohydrateCalories { get; set; }
+        public double UserProtein { get; set; }
+        public double UserProteinCalories { get; set; }
+        public double UserFat { get; set; }
+        public double UserFatCalories { get; set; }
+        public double UserCarbohydrate { get; set; }
+        public double UserCarbohydrateCalories { get; set; }
+        public List<RecipeModel> SampleRecipes { get; set; }
     }
 }
