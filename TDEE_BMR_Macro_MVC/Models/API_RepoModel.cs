@@ -50,64 +50,64 @@ namespace TDEE_BMR_Macro_MVC.Models
             IRestResponse response = client.Execute(request);
             user.TDEE = double.Parse(JObject.Parse(response.Content)["info"]["tdee"].ToString());
         }
-        public void GetApiRecipes(UserModel user)
-        {
-            var key = File.ReadAllText("appsettings.json");
-            var APIKey = JObject.Parse(key).GetValue("X-RapidAPI-Key").ToString();
-            var APIHost = JObject.Parse(key).GetValue("X-RapidAPI-Host1").ToString();
+        //public void GetApiRecipes(UserModel user)
+        //{
+        //    var key = File.ReadAllText("appsettings.json");
+        //    var APIKey = JObject.Parse(key).GetValue("X-RapidAPI-Key").ToString();
+        //    var APIHost = JObject.Parse(key).GetValue("X-RapidAPI-Host1").ToString();
 
-            //Recipes
-            var minP = user.UserProtein / user.MealCount;
-            var minF = user.UserFat / user.MealCount;
-            var minC = user.UserCarbohydrate / user.MealCount;
-            string urlRecipe = $"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByNutrients?limitLicense=false&minProtein={minP}&minCarbs={minC}&maxFat={minF + 5}&maxProtein={minP + 15}&maxCarbs={minC + 30}&number={user.MealCount}&minFat={minF}";
+        //    //Recipes
+        //    var minP = user.UserProtein / user.MealCount;
+        //    var minF = user.UserFat / user.MealCount;
+        //    var minC = user.UserCarbohydrate / user.MealCount;
+        //    string urlRecipe = $"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByNutrients?limitLicense=false&minProtein={minP}&minCarbs={minC}&maxFat={minF + 5}&maxProtein={minP + 15}&maxCarbs={minC + 30}&number={user.MealCount}&minFat={minF}";
 
-            var client = new RestClient(urlRecipe);
-            var request = new RestRequest(Method.GET);
-            request.AddHeader("X-RapidAPI-Key", APIKey);
-            request.AddHeader("X-RapidAPI-Host1", APIHost);
-            IRestResponse response = client.Execute(request);
+        //    var client = new RestClient(urlRecipe);
+        //    var request = new RestRequest(Method.GET);
+        //    request.AddHeader("X-RapidAPI-Key", APIKey);
+        //    request.AddHeader("X-RapidAPI-Host1", APIHost);
+        //    IRestResponse response = client.Execute(request);
 
-            for (int i = 0; i < user.MealCount; i++)
-            { 
-                var recipeObj = new RecipeModel();
+        //    for (int i = 0; i < user.MealCount; i++)
+        //    { 
+        //        var recipeObj = new RecipeModel();
 
-                recipeObj.Id = JArray.Parse(response.Content)[i]["id"].ToString();
-                recipeObj.Title = JArray.Parse(response.Content)[i]["title"].ToString();
-                recipeObj.Image = JArray.Parse(response.Content)[i]["image"].ToString();
-                recipeObj.ImageType = JArray.Parse(response.Content)[i]["imageType"].ToString();
-                recipeObj.Calories = JArray.Parse(response.Content)[i]["calories"].ToString();
-                recipeObj.Protein = JArray.Parse(response.Content)[i]["protein"].ToString();
-                recipeObj.Fat = JArray.Parse(response.Content)[i]["fat"].ToString();
-                recipeObj.Carbs = JArray.Parse(response.Content)[i]["carbs"].ToString();
+        //        recipeObj.Id = JArray.Parse(response.Content)[i]["id"].ToString();
+        //        recipeObj.Title = JArray.Parse(response.Content)[i]["title"].ToString();
+        //        recipeObj.Image = JArray.Parse(response.Content)[i]["image"].ToString();
+        //        recipeObj.ImageType = JArray.Parse(response.Content)[i]["imageType"].ToString();
+        //        recipeObj.Calories = JArray.Parse(response.Content)[i]["calories"].ToString();
+        //        recipeObj.Protein = JArray.Parse(response.Content)[i]["protein"].ToString();
+        //        recipeObj.Fat = JArray.Parse(response.Content)[i]["fat"].ToString();
+        //        recipeObj.Carbs = JArray.Parse(response.Content)[i]["carbs"].ToString();
 
-                user.SampleRecipes.Add(recipeObj);
-            }
-        }
-        public void GetApiRecipeSourceUrl(UserModel user)
-        {
-            var key = File.ReadAllText("appsettings.json");
-            var APIKey = JObject.Parse(key).GetValue("X-RapidAPI-Key").ToString();
-            var APIHost = JObject.Parse(key).GetValue("X-RapidAPI-Host1").ToString();
+        //        user.SampleRecipes.Add(recipeObj);
+        //    }
+        //}
+        //public void GetApiRecipeSourceUrl(UserModel user)
+        //{
+        //    var key = File.ReadAllText("appsettings.json");
+        //    var APIKey = JObject.Parse(key).GetValue("X-RapidAPI-Key").ToString();
+        //    var APIHost = JObject.Parse(key).GetValue("X-RapidAPI-Host1").ToString();
 
-            for (int i = 0; i < user.MealCount; i++)
-            {
-                foreach (RecipeModel recipe in user.SampleRecipes)
-                {
-                    //RecioeUrl
-                    string urlSourceRecipe = $"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{user.SampleRecipes[i].Id}/information";
+        //    for (int i = 0; i < user.MealCount; i++)
+        //    {
+        //        foreach (RecipeModel recipe in user.SampleRecipes)
+        //        {
+        //            //RecioeUrl
+        //            string urlSourceRecipe = $"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{user.SampleRecipes[i].Id}/information";
                     
-                    var client = new RestClient(urlSourceRecipe);
-                    var request = new RestRequest(Method.GET);
-                    request.AddHeader("X-RapidAPI-Key", APIKey);
-                    request.AddHeader("X-RapidAPI-Host1", APIHost);
-                    IRestResponse response = client.Execute(request);
+        //            var client = new RestClient(urlSourceRecipe);
+        //            var request = new RestRequest(Method.GET);
+        //            request.AddHeader("X-RapidAPI-Key", APIKey);
+        //            request.AddHeader("X-RapidAPI-Host1", APIHost);
+        //            IRestResponse response = client.Execute(request);
 
-                    user.SampleRecipes[i].SourceUrl = JObject.Parse(response.Content)["sourceUrl"].ToString();
-                }
-            }
+        //            user.SampleRecipes[i].SourceUrl = JObject.Parse(response.Content)["sourceUrl"].ToString();
+        //        }
+        //    }
           
 
-        }
+        //}
     }
 }

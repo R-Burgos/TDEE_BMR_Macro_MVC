@@ -13,7 +13,7 @@ namespace TDEE_BMR_Macro_MVC.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult About()
         {
             return View();
         }
