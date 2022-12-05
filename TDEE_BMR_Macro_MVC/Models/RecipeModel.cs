@@ -14,5 +14,6 @@
         public string Protein { get; set; }
         public string Fat { get; set; }
         public string Carbs { get; set; }
+        public string SourceUrl { get; set; }
     }
 }

@@ -84,5 +84,30 @@ namespace TDEE_BMR_Macro_MVC.Models
                 user.SampleRecipes.Add(recipeObj);
             }
         }
+        public void GetApiRecipeSourceUrl(UserModel user)
+        {
+            var key = File.ReadAllText("appsettings.json");
+            var APIKey = JObject.Parse(key).GetValue("X-RapidAPI-Key").ToString();
+            var APIHost = JObject.Parse(key).GetValue("X-RapidAPI-Host1").ToString();
+
+            for (int i = 0; i < user.MealCount; i++)
+            {
+                foreach (RecipeModel recipe in user.SampleRecipes)
+                {
+                    //RecioeUrl
+                    string urlSourceRecipe = $"https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/{user.SampleRecipes[i].Id}/information";
+                    
+                    var client = new RestClient(urlSourceRecipe);
+                    var request = new RestRequest(Method.GET);
+                    request.AddHeader("X-RapidAPI-Key", APIKey);
+                    request.AddHeader("X-RapidAPI-Host1", APIHost);
+                    IRestResponse response = client.Execute(request);
+
+                    user.SampleRecipes[i].SourceUrl = JObject.Parse(response.Content)["sourceUrl"].ToString();
+                }
+            }
+          
+
+        }
     }
 }

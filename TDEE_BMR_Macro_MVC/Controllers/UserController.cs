@@ -10,17 +10,19 @@ namespace TDEE_BMR_Macro_MVC.Controllers
             return View();
         }
 
-        public IActionResult UserCalculatedInfo(UserModel userModel) 
+        public IActionResult Results(UserModel userModel) 
         {
-            API_RepoModel cal = new API_RepoModel();
-            cal.GetApiTDEE(userModel);
-            cal.GetApiBMR(userModel);
+            API_RepoModel apiGet = new API_RepoModel();
+            apiGet.GetApiTDEE(userModel);
+            apiGet.GetApiBMR(userModel);
             userModel.TDEE = Math.Round(userModel.TDEE, 0, MidpointRounding.AwayFromZero);
             userModel.BMR = Math.Round(userModel.BMR, 0, MidpointRounding.AwayFromZero);
             userModel.GoalCalories(userModel);
             userModel.GetMacros(userModel);
+            apiGet.GetApiRecipes(userModel);
+            apiGet.GetApiRecipeSourceUrl(userModel);
 
-            return View("UserCalculatedInfo", userModel);
+            return View("Results", userModel);
         }
     }
 }

@@ -82,6 +82,7 @@ namespace TDEE_BMR_Macro_MVC.Models
         public double UserFatCalories { get; set; }
         public double UserCarbohydrate { get; set; }
         public double UserCarbohydrateCalories { get; set; }
-        public List<RecipeModel> SampleRecipes { get; set; }
+        public List<RecipeModel> SampleRecipes { get; set; } = new List<RecipeModel>();
+
     }
 }
