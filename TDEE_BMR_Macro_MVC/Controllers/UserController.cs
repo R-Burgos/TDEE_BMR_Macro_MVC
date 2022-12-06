@@ -19,8 +19,8 @@ namespace TDEE_BMR_Macro_MVC.Controllers
             userModel.BMR = Math.Round(userModel.BMR, 0, MidpointRounding.AwayFromZero);
             userModel.GoalCalories(userModel);
             userModel.GetMacros(userModel);
-            //apiGet.GetApiRecipes(userModel);
-            //apiGet.GetApiRecipeSourceUrl(userModel);
+            apiGet.GetApiRecipes(userModel);
+            apiGet.GetApiRecipeSourceUrl(userModel);
 
             return View("Results", userModel);
         }

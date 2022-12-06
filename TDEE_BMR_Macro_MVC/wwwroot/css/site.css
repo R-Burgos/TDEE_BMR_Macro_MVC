@@ -46,3 +46,7 @@ body {
     background-position: center;
     background-size: cover;
 }
+.carousel-control-next,
+.carousel-control-prev{
+    filter: invert(100%);
+}

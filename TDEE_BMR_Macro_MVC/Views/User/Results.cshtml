@@ -60,26 +60,61 @@
         </dd>
     </dl>
 </div>
+
 <hr />
 <hr />
+<div class="d-flex justify-content-center">
 <h1>Please see below for sample recieps!</h1>
+</div>
+<div class="d-flex justify-content-center">
+<p><strong>In order to help you meal plan and crush your diet goals, a list of sample recipes has been provided for you. Click on any image to be taken to the recipe!</strong></p>
+</div>
 <hr />
-@foreach (RecipeModel recipeModel in Model.SampleRecipes)
-{
-           <div id="sampleRecipeCarousel" class="carousel slide" data-bs-ride="false">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
+<div id="carouselRecipe" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-inner">
+        @foreach(RecipeModel recipeModel in Model.SampleRecipes)
+        {
+            if (recipeModel == Model.SampleRecipes[0])
+            {
+                <div class="carousel-item active"> 
+                    <div class="d-flex justify-content-center">
                         <a href="@recipeModel.SourceUrl">
-                            <img src="@recipeModel.Image" width="800" height="400" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>@recipeModel.Title</title><rect width="100%" height="100%"></rect>
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>@recipeModel.Title</h5>
-                                <p>@recipeModel.Calories Calories P:@recipeModel.Protein grams - F:@recipeModel.Fat grams - C:@recipeModel.Carbs grams</p>
-                            </div>
+                            <img src="@recipeModel.Image" class="d-block w-100" alt="@recipeModel.Title" >
                         </a>
                     </div>
+                        <div class="carousel-caption d-none d-md-block text-white text-bg-dark p-2 font-weight-bold d-flex justify-content-lg-start" >
+                            <h5>@recipeModel.Title</h5>
+                            <p>@recipeModel.Calories calories - P: @recipeModel.Protein - F: @recipeModel.Fat - C: @recipeModel.Carbs</p>
+                        </div>
                 </div>
-            </div>
-}
+            }
+            else
+            {
+                <div class="carousel-item">
+                    <div class="d-flex justify-content-center">
+                        <a href="@recipeModel.SourceUrl">
+                            <img src="@recipeModel.Image" class="d-block w-100" alt="@recipeModel.Title">
+                        </a>
+                    </div>
+                        <div class="carousel-caption d-none d-md-block text-white text-bg-dark p-2 font-weight-bold" >
+                            <h5>@recipeModel.Title</h5>
+                            <p>@recipeModel.Calories calories - P: @recipeModel.Protein - F: @recipeModel.Fat - C: @recipeModel.Carbs</p>
+                        </div>
+                </div>
+            }
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselRecipe" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselRecipe" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
 
 
 <div>
