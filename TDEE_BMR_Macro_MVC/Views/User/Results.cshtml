@@ -1,57 +1,9 @@
 ﻿@model TDEE_BMR_Macro_MVC.Models.UserModel
 
 <div>
-    <h4 class="nice-headline">Your Results</h4>
+    <h4>UserModel</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Weight)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Weight)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Height)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Height)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ActivityLevel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ActivityLevel)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Gender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Gender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Age)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Age)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CalorieTargetModifier)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CalorieTargetModifier)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CarbLevel)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CarbLevel)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MealCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MealCount)
-        </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.TDEE)
         </dt>
@@ -107,30 +59,29 @@
             @Html.DisplayFor(model => model.UserCarbohydrateCalories)
         </dd>
     </dl>
-    <table class="table table-striped table-hover">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Calories</th>
-            <th>Protein</th>
-            <th>Fat</th>
-            <th>Carbohydrate</th>
-            <th>Source URL</th>
-        </tr>
-        @foreach (RecipeModel recipe in Model.SampleRecipes)
-        {
-            <tr>
-                <td>@recipe.Id</td>
-                <td>@recipe.Title</td>
-                <td>@recipe.Calories</td>
-                <td>@recipe.Protein</td>
-                <td>@recipe.Fat</td>
-                <td>@recipe.Carbs</td>
-                <td>@recipe.SourceUrl</td>
-            </tr>
-        }
-    </table>
 </div>
+<hr />
+<hr />
+<h1>Please see below for sample recieps!</h1>
+<hr />
+@foreach (RecipeModel recipeModel in Model.SampleRecipes)
+{
+           <div id="sampleRecipeCarousel" class="carousel slide" data-bs-ride="false">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <a href="@recipeModel.SourceUrl">
+                            <img src="@recipeModel.Image" width="800" height="400" role="img" preserveAspectRatio="xMidYMid slice" focusable="false"><title>@recipeModel.Title</title><rect width="100%" height="100%"></rect>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>@recipeModel.Title</h5>
+                                <p>@recipeModel.Calories Calories P:@recipeModel.Protein grams - F:@recipeModel.Fat grams - C:@recipeModel.Carbs grams</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+}
+
+
 <div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     <a asp-action="Index">Back to List</a>

@@ -30,3 +30,19 @@ body {
     font-size: 18px;
     text-align: center;
 }
+.trial {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 22px;
+    min-height: 0px;
+    margin-bottom: 23px;
+    background-image: url(https://cdn.builder.io/api/v1/file/assets%2Fanonymous%2Fecf6e2cc9039479f9822675f05545861);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
