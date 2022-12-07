@@ -2,6 +2,9 @@
 
 <div>
     <div class="d-flex justify-content-center">
+        <h1>BMR</h1>
+    </div>
+    <div class="d-flex justify-content-center">
         <div class="card border-warning" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">@Html.DisplayFor(model => model.BMR) Calories</h5>
@@ -10,12 +13,12 @@
         </div>
     </div>
         <div class="d-flex justify-content-center">
-            <h1>BMR</h1>
-        </div>
-        <div class="d-flex justify-content-center">
             <p>The Basal Metabolic Rate (BMR) estimates the amount of energy you expend while at rest.  Knowing your BMR is important to accurately guaging fitness goals that surround lossing body fat or gaining muscle.</p>
         </div>
     <hr />
+    <div class="d-flex justify-content-center">
+        <h1>TDEE</h1>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="card border-warning" style="width: 18rem;">
             <div class="card-body">
@@ -25,13 +28,12 @@
         </div>
     </div>
         <div class="d-flex justify-content-center">
-            <h1>TDEE</h1>
-        </div>
-        <div class="d-flex justify-content-center">
             <p>Your Total Daily Energy Expenditure (TDEE) is an estimation of how many calories you burn per day when exercise is taken into consideration.  Your BMR is multiplied by a value that is determined by uour activity level. Your TDEE is your current maintenance calories, this number is adjusted bassed on your current goals.</p>
         </div>
     <hr />
-
+    <div class="d-flex justify-content-center">
+        <h1>Your Target Calories</h1>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="card border-warning" style="width: 18rem;">
             <div class="card-body">
@@ -40,16 +42,12 @@
             </div>
         </div>
     </div>
-     <div class="d-flex justify-content-center">
-            <h1>Your Target Calories</h1>
-     </div>
         <div class="d-flex justify-content-center">
             <p>Your target calories are bassed on the information you provided.  Your target calories are a reflection of your future fitness or health goals.  In order to loose body fat, you must eat under your TDEE, this is a caloric deficit.  If your goals is to increase body weight or muscle gain, you must eat above your TDEE, this is a caloric surplus.</p>
         </div>
     <hr />
     <h2>Your Stats</h2>
     <p>The following data has been generated based on your inputs.</p>
-
     <table class="table table-striped table-hover">
         <tr>
             <th>Target Calories</th>
@@ -69,7 +67,6 @@
                 <td>@Html.DisplayFor(model => model.UserCarbohydrate)</td>
                 <td>@Html.DisplayFor(model => model.UserCarbohydrateCalories)</td>
             </tr>
-        
     </table>
 </div>
 <hr />
